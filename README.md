@@ -5,7 +5,8 @@
 ### 1. Lista de números ao quadrado
 
 ```python
-numeros: list = list(range(1, 11)) # Criando uma lista de números de 1 a 10
+# Criando uma lista de números de 1 a 10
+numeros: list = list(range(1, 11))
 for numero in numeros:
     print(numero ** 2)
 ```
@@ -13,11 +14,14 @@ for numero in numeros:
 ### 2. Modificar lista de linguagens
 
 ```python
-linguagem: list = ["Python", "Java", "C++", "JavaScript"] # Criando uma lista de linguagens de programação
-print("A lista original é:", linguagem) # Imprimindo a lista original
-linguagem.append("SQL") # Adicionando "SQL" à lista
-linguagem.remove("Java") # Removendo "Java" da lista
-print("A lista modificada é:", linguagem) # Imprimindo a lista modificada
+# Criando uma lista de linguagens de programação
+linguagem: list = ["Python", "Java", "C++", "JavaScript"]
+# Imprimindo a lista original
+print("A lista original é:", linguagem)
+linguagem.append("SQL") # Adiciona "SQL" à lista
+linguagem.remove("Java") # Remove "Java" da lista
+# Imprime a lista modificada
+print("A lista modificada é:", linguagem)
 ```
 
 ### 3. Informações de um livro
@@ -30,19 +34,23 @@ livro: dict = {
     "genero": "Fantasia"
 }
 for chave, valor in livro.items():
+    # Imprime o valor de "chave" e "valor"
     print(f"{chave} : {valor}")
 ```
 
 ### 4. Contar ocorrências de caracteres
 
 ```python
-frase: str = input("Digite uma frase: ") # Solicitando ao usuário que digite uma frase
+# Solicita ao usuário que digite uma frase
+frase: str = input("Digite uma frase: ")
 def contagem(frase) -> dict:
-    contagem_dict: dict = {} # Criando um dicionário vazio para armazenar a frequência dos caracteres
-    for char in frase: # Iterando sobre cada caractere na frase
-        contagem_dict[char] = contagem_dict.get(char, 0) + 1 # Incrementando a contagem do caractere
+    # Cria um dicionário vazio para armazenar a frequência dos caracteres
+    contagem_dict: dict = {}
+    for char in frase: # Itera sobre cada caractere na frase
+        contagem_dict[char] = contagem_dict.get(char, 0) + 1 # Incrementa a contagem do caractere
     return contagem_dict
-print("Segue a contagem dos caracteres na frase:", contagem(frase)) # Imprimindo a contagem dos caracteres na frase
+# Imprime a contagem dos caracteres na frase
+print("Segue a contagem dos caracteres na frase:", contagem(frase))
 ```
 
 ### 5. Preço total da lista de compras
@@ -53,8 +61,10 @@ produtos: list = [
     {"nome": "Feijão", "preco": 7.30},
     {"nome": "Macarrão", "preco": 3.20}
 ]
-total: float = sum(produto["preco"] for produto in produtos) # Calculando o preço total dos produtos
-print(f"O preço total da lista de compras é: R${total:.2f}") # Imprimindo o preço total formatado
+# Calcula o preço total dos produtos
+total: float = sum(produto["preco"] for produto in produtos)
+# Imprime o preço total formatado
+print(f"O preço total da lista de compras é: R${total:.2f}")
 ```
 
 ## Exercícios intermediários e mais avançados
@@ -70,8 +80,10 @@ emails: list = [
     "user1@example.com",
     "user3@example.com"
 ]
-emails_unicos: list = list(set(emails)) # Convertendo a lista para um conjunto para eliminar duplicatas e depois de volta para lista
-print("Lista de emails sem duplicatas:", emails_unicos) # Imprimindo a lista de emails sem duplicatas
+# Converte a lista para um conjunto, elimina duplicatas e depois de volta para lista
+emails_unicos: list = list(set(emails))
+# Imprime a lista de emails sem duplicatas
+print("Lista de emails sem duplicatas:", emails_unicos)
 ```
 
 #### 7. Filtragem de Dados
@@ -79,9 +91,12 @@ print("Lista de emails sem duplicatas:", emails_unicos) # Imprimindo a lista de 
 ##### **Objetivo:** Dada uma lista de idades, filtrar apenas aquelas que são maiores ou iguais a 18.
 
 ```python
-idades: list = [15, 22, 17, 30, 18, 12] # Criando uma lista de idades
-idades_adultas: list = [idade for idade in idades if idade >= 18] # Usando list comprehension para filtrar idades maiores ou iguais a 18
-print("Idades maiores ou iguais a 18:", idades_adultas) # Imprimindo as idades filtradas
+# Cria uma lista de idades
+idades: list = [15, 22, 17, 30, 18, 12]
+# Usa list comprehension para filtrar idades maiores ou iguais a 18
+idades_adultas: list = [idade for idade in idades if idade >= 18]
+# Imprime as idades filtradas
+print("Idades maiores ou iguais a 18:", idades_adultas)
 ```
 
 #### 8. Ordenação Personalizada
@@ -94,8 +109,10 @@ pessoas: list = [
     {"nome": "Janaina", "idade": 34},
     {"nome": "Marcelly", "idade": 12}
 ]
-pessoas_ordenadas: list = sorted(pessoas, key=lambda pessoa: pessoa["nome"]) # Ordenando a lista de pessoas pelo nome usando a função sorted e uma função lambda
-print("Pessoas ordenadas por nome:", pessoas_ordenadas) # Imprimindo a lista de pessoas ordenada por nome
+# Ordena a lista de pessoas pelo nome usando a função "sorted" e a função "lambda"
+pessoas_ordenadas: list = sorted(pessoas, key=lambda pessoa: pessoa["nome"])
+# Imprime a lista de pessoas ordenada por nome
+print("Pessoas ordenadas por nome:", pessoas_ordenadas)
 ```
 
 #### 9. Agregação de Dados
@@ -103,10 +120,14 @@ print("Pessoas ordenadas por nome:", pessoas_ordenadas) # Imprimindo a lista de 
 ##### **Objetivo:** Dado um conjunto de números, calcular a média.
 
 ```python
-numeros_input: str = input("Digite um conjunto de números separados por vírgula: ") # Armazenando a entrada do usuário em uma variável
-numeros_list: list = [float(num.strip()) for num in numeros_input.split(",")] # Convertendo a string de entrada em uma lista de números, removendo espaços e convertendo para float
-media: float = sum(numeros_list) / len(numeros_list) # Calculando a média dos números
-print(f"A média dos números é: {media:.2f}") # Imprimindo a média formatada
+# Solicita ao usuário para digitar um conjunto de números separados por vírgula
+numeros_input: str = input("Digite um conjunto de números separados por vírgula: ")
+# Converte a "string" de entrada em uma lista de números, remove espaços e converte para "float"
+numeros_list: list = [float(num.strip()) for num in numeros_input.split(",")]
+# Calcula a média dos números
+media: float = sum(numeros_list) / len(numeros_list)
+# Imprime a média formatada
+print(f"A média dos números é: {media:.2f}")
 ```
 
 #### 10. Divisão de Dados em Grupos
@@ -114,12 +135,17 @@ print(f"A média dos números é: {media:.2f}") # Imprimindo a média formatada
 ##### **Objetivo:** Dada uma lista de valores, dividir em duas listas: uma para valores pares e outra para ímpares.
 
 ```python
-numeros_input: str = input("Digite um conjunto de números por vírgula: ") # Armazenando a entrada do usuário em uma variável
-numeros_list: list = [float(num.strip()) for num in numeros_input.split(",")] # Convertendo a string de entrada em uma lista de números, removendo espaços e convertendo para float
-pares: list = [num for num in numeros_list if num % 2 == 0] # Criando uma lista de números pares usando list comprehension
-impares: list = [num for num in numeros_list if num % 2 != 0] # Criando uma lista de números ímpares usando list comprehension
-print(f"Números pares: {pares}") # Imprimindo a lista de números pares
-print(f"Números ímpares: {impares}") # Imprimindo a lista de números ímpares
+# Solicita ao usuário para digitar um conjunto de números separados por vírgula
+numeros_input: str = input("Digite um conjunto de números por vírgula: ")
+# Converte a "string" de entrada em uma lista de números, remove espaços e converte para "float"
+numeros_list: list = [float(num.strip()) for num in numeros_input.split(",")]
+# Cria uma lista de números pares usando "list comprehension"
+pares: list = [num for num in numeros_list if num % 2 == 0]
+# Cria uma lista de números ímpares usando "list comprehension"
+impares: list = [num for num in numeros_list if num % 2 != 0]
+# Imprime a lista de números pares e a lista de números ímpares
+print(f"Números pares: {pares}")
+print(f"Números ímpares: {impares}")
 ```
 
 ### Exercícios com Dicionários
@@ -136,17 +162,24 @@ produtos: list = [
     {"nome": "Açúcar", "preco": 4.00},
     {"nome": "Sal", "preco": 2.50}
 ]
-produto_para_atualizar: str = input("Digite o nome do produto para atualizar o preço: ") # Solicitando ao usuário que digite o nome do produto a ser atualizado
-novo_preco: float = float(input("Digite o novo preço do produto: ")) # Solicitando ao usuário que digite o novo preço do produto
-
-for produto in produtos: # Iterando sobre a lista de produtos
-    if produto["nome"].lower() == produto_para_atualizar.lower(): # Verificando se o nome do produto corresponde ao nome fornecido pelo usuário (ignorando maiúsculas/minúsculas)
-        produto["preco"] = novo_preco # Atualizando o preço do produto
-        print(f"O preço do produto '{produto['nome']}' foi atualizado para R${novo_preco:.2f}") # Imprimindo uma mensagem de confirmação da atualização
-        break # Saindo do loop após atualizar o produto
+# Solicita ao usuário que digite o nome do produto a ser atualizado
+produto_para_atualizar: str = input("Digite o nome do produto para atualizar o preço: ")
+# Solicita ao usuário que digite o novo preço do produto
+novo_preco: float = float(input("Digite o novo preço do produto: "))
+# Iterando sobre a lista de produtos
+for produto in produtos: 
+    # Verifica se o nome do produto corresponde ao nome fornecido pelo usuário (ignorando maiúsculas/minúsculas)
+    if produto["nome"].lower() == produto_para_atualizar.lower():
+        # Atualiza o preço do produto
+        produto["preco"] = novo_preco
+        # Imprime uma mensagem de confirmação da atualização
+        print(f"O preço do produto '{produto['nome']}' foi atualizado para R${novo_preco:.2f}")
+        break # Saída do loop após atualizar o produto
 else:
-    print(f"Produto '{produto_para_atualizar}' não encontrado na lista.") # Imprimindo uma mensagem caso o produto não seja encontrado
-print("Segue a lista de produtos atualizada:", produtos) # Imprimindo a lista de produtos atualizada
+    # Imprime uma mensagem caso o produto não seja encontrado
+    print(f"Produto '{produto_para_atualizar}' não encontrado na lista.")
+# Imprime a lista de produtos atualizada
+print("Segue a lista de produtos atualizada:", produtos)
 ```
 
 #### 12. Fusão de Dicionários
