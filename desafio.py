@@ -1,21 +1,22 @@
-## Desafio: Criar um programa que solicite ao usuário que digite: 
+## Desafio: Criar um programa que solicite ao usuário que digite:
 ## o seu nome, o valor do seu salário e o valor do bônus recebido.
 
-## Integrar na solução um fluxo de While 
-## que repita o fluxo até que o usuário insira as 
+## Integrar na solução um fluxo de While
+## que repita o fluxo até que o usuário insira as
 ## informações corretas
 
 ## Refatorar nosso código usando Dicionário, Type Hint e Funcões.
 
 # Declaração de variáveis com tipagem
+
 nome_valido: bool = False
 salario_valido: bool = False
 bonus_valido: bool = False
 
-while nome_valido is not True:
+while nome_valido is False:
     try:
         # Solicita ao usuário que digite seu nome
-        nome = input("Digite seu nome: ")
+        nome = input("Digite o nome do vendedor: ")
         # Verifica se o nome está vazio
         if len(nome) == 0:
             raise ValueError("O nome não pode estar vazio.")
@@ -28,15 +29,15 @@ while nome_valido is not True:
         elif len(nome.strip()) == 0:
             raise ValueError("O nome não pode estar vazio.")
         else:
-            print("Nome válido:", nome)
+            print("Nome válido:", nome.title())
             nome_valido = True
     except ValueError as e:
         print(e)
 
 # Solicita ao usuário que digite o valor do seu salário e converte para float
-while salario_valido is not True:
+while salario_valido is False:
     try:
-        salario = float(input("Digite o valor do seu salário: "))
+        salario = float(input("Digite o valor do salário: "))
         # Verifica se o salario é negativo
         if salario < 0:
             raise ValueError("O salário não pode ser negativo.")
@@ -51,25 +52,33 @@ while salario_valido is not True:
         print(e)
 
 # Solicita ao usuário que digite o valor do bônus recebido e converte para float
-while bonus_valido is not True:
+while bonus_valido is False:
     try:
-        bonus = float(input("Digite o valor do bônus recebido: "))
+        bonus = float(input("Digite a porcentagem do bônus: "))
         # Verifica se o bônus é negativo
         if bonus < 0:
             raise ValueError("O bônus não pode ser negativo.")
-        # Verifica se o bônus está vazio   
+        # Verifica se o bônus está vazio
         if len(str(bonus)) == 0:
             raise ValueError("O bônus não pode estar vazio.")
         # Se o bônus for válido, imprime a mensagem de sucesso e define a variável de controle para True
         else:
-            print(f"Bônus válido: {bonus}%")
+            print(f"Bônus válido: {bonus:.2f}%")
         bonus_valido = True
     except ValueError as e:
         print(e)
 
-# Calcula os valores de KPI do bônus recebido 
-bunus_recebido = salario * (bonus / 100)
-bonus_recebido = 1000 + salario + bunus_recebido
+# Calcula os valores de KPI do bônus recebido
+bunus_recebido: float = salario * (bonus / 100)
 
-# Imprime as informações ao usuário
-print(f"{nome.title()}, seu salário é de R${salario:.2f} e seu salário com bônus final é R${bonus_recebido:.2f}.")
+# Cria um dicionário com o nome, salário e porcentagem de bonus
+cadastro_vendedor: dict = {
+    "Nome": f"{nome.title()}",
+    "Salário": f"{salario:.2f}",
+    "Bônus": f"{bonus}%",
+    "Bônus recebido": f"{(1000 + bunus_recebido):.2f}",
+    "Salário + bônus": f"{(salario + 1000 + bunus_recebido):.2f}",
+}
+# Imprime as informações ao usuário, separando os valores
+print()
+print(cadastro_vendedor)
